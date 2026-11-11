@@ -17,7 +17,7 @@ public class MessageController {
 
 	public MessageController(@Value("${APP_MESSAGE:Hello from Laza Nomentsoa}") String message,
 			@Value("${APP_VERSION:local}") String version) {
-		this.message = message + " set https";
+		this.message = message;
 		this.version = version;
 	}
 
