@@ -23,7 +23,7 @@ function App() {
       {data && (
         <>
           <h1 className="message">{data.message}</h1>
-          <p className='muted'>Deployed automacally by Laza Nomentsoa</p>
+          <p className='muted'>Deployé automatiquement par Laza Nomentsoa Rabesandratana</p>
           <div className="meta">
             <span>Version: {data.version}</span>
             <span>Server time: {new Date(data.serverTime).toLocaleString()}</span>
