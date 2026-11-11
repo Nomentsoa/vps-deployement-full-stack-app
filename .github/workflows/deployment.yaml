@@ -19,5 +19,5 @@ jobs:
 #          project-name: my-awesome-app
 #          docker-compose-path: docker/docker-compose.yml
           environment-variables:
-            APP_MESSAGE: ${{ vars.APP_MESSAGE }}
-            APP_VERSION: ${{ github.sha }}
+            APP_MESSAGE=${{ vars.APP_MESSAGE }}
+            APP_VERSION=${{ github.sha }}
