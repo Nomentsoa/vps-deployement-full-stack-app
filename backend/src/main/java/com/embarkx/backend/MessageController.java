@@ -29,4 +29,5 @@ public class MessageController {
 	public record MessageResponse(String message, String version, String serverTime) {
 	}
 
+
 }
