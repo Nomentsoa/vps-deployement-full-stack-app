@@ -10,6 +10,34 @@ services:
     build: ./frontend
     ports:
       - "${HTTP_PORT:-80}:80"
+      - "${HTTPS_PORT:-443}:443"
+    volumes:
+      - certbot-etc:/etc/letsencrypt
+      - certbot-var:/var/www/certbot
     depends_on:
       - backend
     restart: always
+
+  certbot:
+    image: certbot/certbot
+    volumes:
+      - certbot-etc:/etc/letsencrypt
+      - certbot-var:/var/www/certbot
+    depends_on:
+      - frontend
+    entrypoint: >
+      /bin/sh -c "
+      sleep 10;
+      if [ ! -f '/etc/letsencrypt/renewal/lazanomentsoa.tech.conf' ]; then
+        rm -rf /etc/letsencrypt/live/lazanomentsoa.tech;
+        certbot certonly --webroot -w /var/www/certbot -d lazanomentsoa.tech -d www.lazanomentsoa.tech --email starksedera@gmail.com --agree-tos --no-eff-email --non-interactive;
+      fi;
+      trap exit TERM;
+      while :; do
+        certbot renew --webroot -w /var/www/certbot;
+        sleep 12h & wait $${!};
+      done;"
+
+volumes:
+  certbot-etc:
+  certbot-var:
