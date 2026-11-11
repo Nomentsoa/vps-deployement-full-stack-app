@@ -11,6 +11,7 @@ if [ ! -f "$CERT_DIR/fullchain.pem" ]; then
     -subj "/CN=lazanomentsoa.tech"
 fi
 
-while :; do sleep 6h & wait ${!}; nginx -s reload; done &
+while :; do sleep 5m & wait ${!}; nginx -s reload; done &
+
 
 exec nginx -g "daemon off;"
