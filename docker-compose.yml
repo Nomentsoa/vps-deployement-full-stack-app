@@ -2,7 +2,7 @@ services:
   backend:
     build: ./backend
     environment:
-      APP_MESSAGE: ${APP_MESSAGE:-Hello from EmbarkX}
+      APP_MESSAGE: ${APP_MESSAGE:-Hello from Laza Nomentsoa Rabesandratana}
       APP_VERSION: ${APP_VERSION:-local}
     restart: always
 

@@ -15,7 +15,7 @@ public class MessageController {
 
 	private final String version;
 
-	public MessageController(@Value("${APP_MESSAGE:Hello from EmbarkX}") String message,
+	public MessageController(@Value("${APP_MESSAGE:Hello from Laza Nomentsoa}") String message,
 			@Value("${APP_VERSION:local}") String version) {
 		this.message = message;
 		this.version = version;
